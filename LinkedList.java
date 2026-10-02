@@ -81,4 +81,20 @@ public class LinkedList {
         }
         return null; // tidak ketemu
     }
+
+    // Tampilkan semua buku
+    public void tampilSemua() {
+        if (head == null) {
+            // validasi jika daftar buku kosong
+            System.out.println("Daftar buku kosong.");
+        } else {
+            System.out.println("Daftar Buku:");
+            Node cur = head; // mulai dari buku pertama
+            while (cur != null) {
+                System.out.println("Kode: " + cur.kodeBuku + " | Judul: " + cur.judul + " | Penulis: " + cur.penulis);
+                cur = cur.next; // lanjut ke buku berikutnya
+            }
+        }
+        System.out.println("Total Buku: " + size);
+    }
 }

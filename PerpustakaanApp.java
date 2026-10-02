@@ -127,7 +127,7 @@ public class PerpustakaanApp {
                     cariBuku(sc, daftar);
                     break;
                 case 4:
-                    System.out.println("Menu ini belum tersedia.");
+                    daftar.tampilSemua();
                     break;
                 case 5: // Menu 5: keluar dari program
                     System.out.println("Terima kasih!");

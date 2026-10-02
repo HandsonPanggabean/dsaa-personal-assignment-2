@@ -59,19 +59,23 @@ public class KasirToko {
     }
 
     // Menu 2: dequeue pelanggan terdepan
-    private static void layaniPelanggan(Queue antrian) {
+    private static void layaniPelanggan(Queue antrian, Stack riwayat) {
         Node dilayani = antrian.dequeue(); // ambil pelanggan dari antrian paling depan
         if (dilayani == null) {
             // validasi jika tidak ada pelanggan di antrian saat ini
             System.out.println("Tidak ada pelanggan dalam antrian.");
         } else {
             System.out.println("Melayani pelanggan " + dilayani.kode + " (" + dilayani.nama + ")");
+            riwayat.push(dilayani.kode, dilayani.nama, dilayani.total); // simpan ke riwayat (stack)
+            System.out.println("Transaksi disimpan ke riwayat.");
+            System.out.println("Sisa antrian: " + antrian.getSize());
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Queue antrian = new Queue();
+        Stack riwayat = new Stack();
         int pilih = 0;
 
         do {
@@ -90,13 +94,13 @@ public class KasirToko {
                     tambahAntrian(sc, antrian);
                     break;
                 case 2: // Menu 2: Layani pelanggan
-                    layaniPelanggan(antrian);
+                    layaniPelanggan(antrian, riwayat);
                     break;
                 case 3:
                     System.out.println("Menu ini belum tersedia.");
                     break;
-                case 4:
-                    System.out.println("Menu ini belum tersedia.");
+                case 4: // Menu 4: Tampilkan riwayat transaksi
+                    riwayat.display();
                     break;
                 case 5: // Keluar
                     System.out.println("Terima kasih!");

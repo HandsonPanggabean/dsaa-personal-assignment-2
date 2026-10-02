@@ -84,6 +84,22 @@ public class PerpustakaanApp {
         }
     }
 
+    // Menu 3: Cari buku
+    private static void cariBuku(Scanner sc, LinkedList daftar) {
+        System.out.print("Masukkan Kode Buku: ");
+        String kode = sc.nextLine().trim(); // simpan kode buku yang diinput user
+        
+        // cari buku berdasarkan kode buku yang telah tersimpan
+        Node hasil = daftar.cari(kode);
+        if (hasil == null) {
+            // validasi jika buku tidak ditemukan
+            System.out.println("Buku tidak ditemukan.");
+        } else {
+            System.out.println("Buku ditemukan!");
+            System.out.println("Kode: " + hasil.kodeBuku + " | Judul: " + hasil.judul + " | Penulis: " + hasil.penulis);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList daftar = new LinkedList();
@@ -108,7 +124,7 @@ public class PerpustakaanApp {
                     hapusBuku(daftar);
                     break;
                 case 3:
-                    System.out.println("Menu ini belum tersedia.");
+                    cariBuku(sc, daftar);
                     break;
                 case 4:
                     System.out.println("Menu ini belum tersedia.");

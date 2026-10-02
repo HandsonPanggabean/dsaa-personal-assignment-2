@@ -39,7 +39,7 @@ public class LinkedList {
         size++; // size = current size + 1
     }
 
-    // Hapus buku terakhir;
+    // Hapus buku terakhir
     public Node hapusTerakhir() {
         if (head == null) {
             return null; // daftar kosong? return null
@@ -65,5 +65,20 @@ public class LinkedList {
         }
         size--; // size = current size - 1
         return dihapus;
+    }
+
+    // Cari buku
+    public Node cari(String kode) {
+        Node cur = head;
+        // apakah cur ada / daftar buku !== kosong ?
+        while (cur != null) {
+            // jika cur.kodeBuku = params kode
+            if (cur.kodeBuku.equalsIgnoreCase(kode)) {
+                return cur;
+            }
+            // jika tidak
+            cur = cur.next; // lanjut perulangan ke node berikutnya
+        }
+        return null; // tidak ketemu
     }
 }

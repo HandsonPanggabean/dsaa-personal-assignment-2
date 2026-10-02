@@ -5,6 +5,17 @@ public class PerpustakaanApp {
     private static final int MAX_KODE = 5;  // kodeBuku maksimal 5 karakter: BK001 = valid & BUKU0001 = invalid
     private static final int MIN_BUKU = 5;  // jumlah data minimal 5 buku
 
+    // Menampilkan list menu
+    private static void tampilkanMenu() {
+        System.out.println("\n===== SISTEM DATA BUKU =====");
+        System.out.println("1. Tambah Buku");
+        System.out.println("2. Hapus Buku");
+        System.out.println("3. Cari Buku");
+        System.out.println("4. Lihat Semua Buku");
+        System.out.println("5. Keluar");
+        System.out.print("Pilih menu: ");
+    }
+
     // Validasi kode buku yang di input user
     private static String bacaKodeBuku(Scanner sc, LinkedList daftar) {
         System.out.print("Masukkan Kode Buku: ");
@@ -61,6 +72,18 @@ public class PerpustakaanApp {
         tampilkanInfoJumlah(daftar);
     }
 
+    // Menu 2: Hapus buku
+    private static void hapusBuku(LinkedList daftar) {
+        Node dihapus = daftar.hapusTerakhir();
+        if (dihapus == null) {
+            // validasi jika tidak ada buku yang bisa dihapus
+            System.out.println("Tidak ada data untuk dihapus.");
+        } else {
+            System.out.println("Buku terakhir berhasil dihapus: " + dihapus.kodeBuku + " | " + dihapus.judul);
+            System.out.println("Sisa buku: " + daftar.getSize());
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList daftar = new LinkedList();
@@ -68,13 +91,7 @@ public class PerpustakaanApp {
 
         do {
             // Tampilkan list menu
-            System.out.println("\n===== SISTEM DATA BUKU =====");
-            System.out.println("1. Tambah Buku");
-            System.out.println("2. Hapus Buku");
-            System.out.println("3. Cari Buku");
-            System.out.println("4. Lihat Semua Buku");
-            System.out.println("5. Keluar");
-            System.out.print("Pilih menu: ");
+            tampilkanMenu();
 
             // Validasi jika user menginput selain angka (huruf, etc) (expected input = angka)
             try {
@@ -88,7 +105,7 @@ public class PerpustakaanApp {
                     tambahBuku(sc, daftar);
                     break;
                 case 2:
-                    System.out.println("Menu ini belum tersedia.");
+                    hapusBuku(daftar);
                     break;
                 case 3:
                     System.out.println("Menu ini belum tersedia.");

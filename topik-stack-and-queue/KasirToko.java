@@ -96,8 +96,8 @@ public class KasirToko {
                 case 2: // Menu 2: Layani pelanggan
                     layaniPelanggan(antrian, riwayat);
                     break;
-                case 3:
-                    System.out.println("Menu ini belum tersedia.");
+                case 3: // Menu 3: Tampilkan antrian
+                    antrian.display();
                     break;
                 case 4: // Menu 4: Tampilkan riwayat transaksi
                     riwayat.display();

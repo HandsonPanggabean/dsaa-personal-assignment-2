@@ -44,4 +44,23 @@ public class Queue {
         size--; // jumlah pelanggan dalam antrian = jumlah pelanggan dalam antrian - 1
         return dilayani;
     }
+
+    // Tampilkan list antrian
+    public void display() {
+        if (size == 0) {
+            // validasi jika antrian kosong
+            System.out.println("Antrian kosong.");
+            return;
+        }
+
+        System.out.println("Antrian saat ini (terdepan di nomor 1):");
+        Node cur = front; // mulai dari pelanggan terdepan
+        int no = 1; // antrian counter: dimulai dari 1
+        while (cur != null) {
+            System.out.println(no + ". " + cur.kode + " | " + cur.nama + " | Rp" + cur.total);
+            cur = cur.next; // lanjut ke pelanggan di belakangnya
+            no++; // antrian counter = antrian counter + 1
+        }
+        System.out.println("Jumlah antrian: " + size);
+    }
 }

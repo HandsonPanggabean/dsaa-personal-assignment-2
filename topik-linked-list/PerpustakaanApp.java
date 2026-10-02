@@ -117,16 +117,16 @@ public class PerpustakaanApp {
             }
 
             switch (pilih) {
-                case 1: // Menu 1: tambah buku
+                case 1: // Menu 1: Tambah buku baru
                     tambahBuku(sc, daftar);
                     break;
-                case 2:
+                case 2: // Menu 2: Hapus buku terakhir
                     hapusBuku(daftar);
                     break;
-                case 3:
+                case 3: // Menu 3: Cari 1 buku
                     cariBuku(sc, daftar);
                     break;
-                case 4:
+                case 4: // Menu 4: Tampilkan semua buku
                     daftar.tampilSemua();
                     break;
                 case 5: // Menu 5: keluar dari program

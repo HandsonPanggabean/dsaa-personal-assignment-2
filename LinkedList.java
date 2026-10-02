@@ -36,6 +36,34 @@ public class LinkedList {
             }
             cur.next = baru; // sambungkan node baru di belakang node terakhir
         }
-        size++;
+        size++; // size = current size + 1
+    }
+
+    // Hapus buku terakhir;
+    public Node hapusTerakhir() {
+        if (head == null) {
+            return null; // daftar kosong? return null
+        }
+ 
+        Node dihapus;
+        // jika hanya ada 1 buku ?
+        if (head.next == null) {
+            dihapus = head; // simpan head untuk dihapus
+            head = null; // nullkan head
+        } else {
+            Node cur = head;
+
+            // jika cur 2 langkah didepan tidak sama dengan null (berisi) ?
+            while (cur.next.next != null) {
+                // maka cur bukanlah node terakhir
+                cur = cur.next; // set cur menjadi next cur 
+                // perulangan kembali dilakukan sampai kondisi dari perulangan bernilai TRUE
+            }
+
+            dihapus = cur.next; // simpan node yang ingin dihapus
+            cur.next = null; // putuskan node terakhir dari daftar
+        }
+        size--; // size = current size - 1
+        return dihapus;
     }
 }

@@ -12,7 +12,7 @@ public class Queue {
     // Enqueue: tambah pelanggan di belakang
     public void enqueue(String kode, String nama, long total) {
         Node baru = new Node(kode, nama, total);
-        // jika pelanggan antrian paling belakang tidak ada (atrian kosong)
+        // jika pelanggan antrian paling belakang tidak ada (antrian kosong)
         if (rear == null) {
             // front dan rear sama-sama node baru
             front = baru;

@@ -51,13 +51,14 @@ public class LinkedList {
             dihapus = head; // simpan head untuk dihapus
             head = null; // nullkan head
         } else {
-            Node cur = head;
+            // jika lebih dari 1 buku
+            Node cur = head; // mulai dari node pertama
 
             // jika cur 2 langkah didepan tidak sama dengan null (berisi) ?
             while (cur.next.next != null) {
                 // maka cur bukanlah node terakhir
-                cur = cur.next; // set cur menjadi next cur 
-                // perulangan kembali dilakukan sampai kondisi dari perulangan bernilai TRUE
+                cur = cur.next; // geser cur satu langkah kedepan
+                // perulangan kembali dilakukan sampai kondisi dari perulangan bernilai FALSE
             }
 
             dihapus = cur.next; // simpan node yang ingin dihapus
@@ -70,7 +71,7 @@ public class LinkedList {
     // Cari buku
     public Node cari(String kode) {
         Node cur = head;
-        // apakah cur ada / daftar buku !== kosong ?
+        // apakah cur ada / daftar buku != null ?
         while (cur != null) {
             // jika cur.kodeBuku = params kode
             if (cur.kodeBuku.equalsIgnoreCase(kode)) {

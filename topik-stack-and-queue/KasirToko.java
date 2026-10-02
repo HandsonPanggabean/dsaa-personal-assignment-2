@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-// Program utama: sistem kasir toko (tahap 1: antrian pelanggan / Queue)
+// Program utama: sistem kasir toko (antrian pelanggan / Queue & riwayat transaksi / Stack)
 public class KasirToko {
     private static final int MIN_ANTRIAN = 5; // minimal 5 pelanggan dalam antrian
 
@@ -58,7 +58,7 @@ public class KasirToko {
         tampilkanInfoJumlah(antrian);
     }
 
-    // Menu 2: dequeue pelanggan terdepan
+    // Menu 2: Layani pelanggan (dequeue dari antrian (queue) + push ke riwayat transaksi (stack))
     private static void layaniPelanggan(Queue antrian, Stack riwayat) {
         Node dilayani = antrian.dequeue(); // ambil pelanggan dari antrian paling depan
         if (dilayani == null) {

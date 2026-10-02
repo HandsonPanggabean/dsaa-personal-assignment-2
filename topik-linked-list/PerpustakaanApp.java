@@ -23,7 +23,7 @@ public class PerpustakaanApp {
  
         // Validasi: tidak kosong & maksimal 5 karakter
         if (kode.isEmpty() || kode.length() > MAX_KODE) {
-            System.out.println("Gagal: kode buku max " + MAX_KODE + " karakter!");
+            System.out.println("Gagal: kode buku tidak boleh kosong dan max " + MAX_KODE + " karakter!");
             return null;
         }
         // Validasi (tambahan): kode tidak boleh sama dengan kode buku lain (dari class LinkedList)

@@ -9,6 +9,23 @@ public class Queue {
         return size; 
     }
 
+    // Validasi tambahan: cek apakah nomor antrian sudah ada di antrian (unique code)
+    public boolean nomorSudahAda(String kode) {
+        Node cur = front; // mulai dari pelanggan terdepan
+
+        // selama cur berisi pelanggan
+        while (cur != null) {
+            // cek apakah current kode sama dengan kode dari parameter?
+            if (cur.kode.equalsIgnoreCase(kode)) {
+                return true; // return true untuk validasi tambahAntrian (invalid -> hentikan proses)
+            }
+            cur = cur.next; // set cur menjadi pelanggan selanjutnya
+            // perulangan kembali dilakukan sampai kondisi dari perulangan bernilai FALSE
+        }
+
+        return false; // jika parameter kode tidak ada di dalam list antrian (valid -> lanjutkan proses)
+    }
+
     // Enqueue: tambah pelanggan di belakang
     public void enqueue(String kode, String nama, long total) {
         Node baru = new Node(kode, nama, total);

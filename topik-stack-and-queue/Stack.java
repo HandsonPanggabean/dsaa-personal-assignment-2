@@ -16,7 +16,7 @@ public class Stack {
         size++; // jumlah transaksi = jumlah transaksi + 1
     }
 
-    // Tampilkan riwayat dari transaksi terbaru (DESC)
+    // Tampilkan riwayat transaksi (dari terbaru ke terlama (DESC))
     public void display() {
         if (top == null) {
             System.out.println("Belum ada riwayat transaksi.");

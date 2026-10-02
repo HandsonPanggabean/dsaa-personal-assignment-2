@@ -28,17 +28,28 @@ public class KasirToko {
     private static void tambahAntrian(Scanner sc, Queue antrian) {
         System.out.print("Masukkan Nomor Antrian: ");
         String kode = sc.nextLine().trim();
-        System.out.print("Masukkan Nama Pelanggan: ");
-        String nama = sc.nextLine().trim();
-        System.out.print("Masukkan Total Belanja: ");
-        String teksTotal = sc.nextLine().trim();
-
         // validasi jika kode maupun nama pelanggan tidak di input user (kosong)
-        if (kode.isEmpty() || nama.isEmpty()) {
-            System.out.println("Gagal: nomor antrian dan nama tidak boleh kosong!");
+        if (kode.isEmpty()) {
+            System.out.println("Gagal: nomor antrian tidak boleh kosong!");
+            return;
+        }
+        // validasi (tambahan): nomor antrian tidak boleh sama dengan nomor antrian pelanggan lain (dari class Queue)
+        if (antrian.nomorSudahAda(kode)) {
+            System.out.println("Gagal: nomor antrian sudah digunakan!");
             return;
         }
 
+        System.out.print("Masukkan Nama Pelanggan: ");
+        String nama = sc.nextLine().trim();
+        // validasi jika kode maupun nama pelanggan tidak di input user (kosong)
+        if (nama.isEmpty()) {
+            System.out.println("Gagal: nama tidak boleh kosong!");
+            return;
+        }
+
+
+        System.out.print("Masukkan Total Belanja: ");
+        String teksTotal = sc.nextLine().trim();
         long total;
         try {
             total = Long.parseLong(teksTotal);

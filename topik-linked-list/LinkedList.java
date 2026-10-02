@@ -10,14 +10,19 @@ public class LinkedList {
 
     // Validasi tambahan: cek apakah kodeBuku sudah dipakai (unique code)
     public boolean kodeSudahAda(String kode) {
-        Node cur = head;
+        Node cur = head; // mulai dari buku pertama
+
+        // selama cur beris buku
         while (cur != null) {
+            // cek apakah current kodeBuku sama dengan kode dari parameter
             if (cur.kodeBuku.equalsIgnoreCase(kode)) {
-                return true;
+                return true; // return true untuk validasi tambahBuku (invalid -> hentikan proses)
             }
-            cur = cur.next;
+            cur = cur.next; // set cur menjadi buku selanjutnya
+            // perulangan kembali dilakukan sampai kondisi dari perulangan bernilai FALSE
         }
-        return false;
+
+        return false; // return false jika parameter kode tidak ada di dalam list antrian (valid -> lanjutkan proses)
     }
 
     // Tambah buku di akhir daftar
@@ -54,7 +59,7 @@ public class LinkedList {
             // jika lebih dari 1 buku
             Node cur = head; // mulai dari node pertama
 
-            // jika cur 2 langkah didepan tidak sama dengan null (berisi) ?
+            // selama cur 2 langkah didepan ada
             while (cur.next.next != null) {
                 // maka cur bukanlah node terakhir
                 cur = cur.next; // geser cur satu langkah kedepan
